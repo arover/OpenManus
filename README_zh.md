@@ -72,13 +72,17 @@ cd OpenManus
 ```bash
 uv venv --python 3.12
 source .venv/bin/activate  # Unix/macOS 系统
-# Windows 系统使用：
-# .venv\Scripts\activate
+```
+
+Windows 系统使用：
+```powershell
+.venv\Scripts\activate
 ```
 
 4. 安装依赖：
 
 ```bash
+export UV_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 uv pip install -r requirements.txt
 ```
 
@@ -86,7 +90,6 @@ uv pip install -r requirements.txt
 ```bash
 playwright install
 ```
-
 ## 配置说明
 
 OpenManus 需要配置使用的 LLM API，请按以下步骤设置：
@@ -102,8 +105,8 @@ cp config/config.example.toml config/config.toml
 ```toml
 # 全局 LLM 配置
 [llm]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
+model = "deepseek-chat"
+base_url = "https://api.deepseek.com/v1"
 api_key = "sk-..."  # 替换为真实 API 密钥
 max_tokens = 4096
 temperature = 0.0
